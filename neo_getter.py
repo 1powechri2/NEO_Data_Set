@@ -18,4 +18,5 @@ req_data = neo.read()
 
 encoding = neo.info().get_content_charset('utf8')
 
-data = json.loads(req_data.decode(encoding))
+def string():
+    return json.loads(req_data.decode(encoding))
