@@ -10,6 +10,10 @@ class CSVLoaderTest(unittest.TestCase):
     def test_it_initializes(self):
         self.assertIsInstance(self.loader, csv_loader.CSVLoader)
 
+    def test_it_gets_neos_from_neo_getter(self):
+        self.assertIsInstance(self.loader.get_neos_from_neo_getter(), dict)
+        self.assertEqual(self.loader.get_neos_from_neo_getter()['element_count'], 27)
+
 
 
 if __name__ == '__main__':
