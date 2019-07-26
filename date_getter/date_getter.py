@@ -1,16 +1,13 @@
-import calendar as cal
+from datetime import datetime, timedelta
 
-new_cal = cal.Calendar()
+start_date = datetime(2019, 1, 1)
+end_date   = start_date + timedelta(1)
 
-month = 1
-year  = 2019
+print(start_date.strftime('%Y-%m-%d'))
+print(end_date.strftime('%Y-%m-%d'))
 
-dates = new_cal.itermonthdates(year, month)
+start_date = end_date
+end_date   = start_date + timedelta(1)
 
-date_list = []
-
-for date in dates:
-    if date.month == month:
-        date_list.append(date.strftime('%Y-%m-%d'))
-
-print(date_list)
+print(start_date.strftime('%Y-%m-%d'))
+print(end_date.strftime('%Y-%m-%d'))
