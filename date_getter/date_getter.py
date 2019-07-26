@@ -1,13 +1,17 @@
 from datetime import datetime, timedelta
 
-start_date = datetime(2019, 1, 1)
-end_date   = start_date + timedelta(1)
+class DateGetter:
 
-print(start_date.strftime('%Y-%m-%d'))
-print(end_date.strftime('%Y-%m-%d'))
+    def __init__(self):
+        self.start_date = datetime(2019, 1, 1)
+        self.end_date   = self.start_date + timedelta(1)
 
-start_date = end_date
-end_date   = start_date + timedelta(1)
+    def start_date_to_string(self):
+        return self.start_date.strftime('%Y-%m-%d')
 
-print(start_date.strftime('%Y-%m-%d'))
-print(end_date.strftime('%Y-%m-%d'))
+    def end_date_to_string(self):
+        return self.end_date.strftime('%Y-%m-%d')
+
+    def advance_date(self):
+        self.start_date = self.end_date
+        self.end_date   = self.start_date + timedelta(1)
