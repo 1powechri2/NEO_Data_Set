@@ -1,6 +1,6 @@
 import urllib.request as req
 import json
-from api_key import key
+from neo_getter.api_key import key
 
 class NeoGetter:
     def __init__(self, start_date, end_date):

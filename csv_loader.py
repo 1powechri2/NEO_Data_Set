@@ -14,10 +14,12 @@ class CSVLoader:
         return self.neo_getter.neoData()
 
     def date_incrementer(self):
-        count = 1
-        while self.date_getter.start_date_to_string() != datetime(2018, 12, 31).strftime('%Y-%m-%d'):
-            count += 1
+        while self.neo_getter.end_date != '2018-12-31':
             self.date_getter.advance_date();
-            self.date_getter.start_date_to_string();
-            self.date_getter.end_date_to_string();
-        return count
+            self.neo_getter.start_date = self.date_getter.start_date_to_string();
+            self.neo_getter.end_date   = self.date_getter.end_date_to_string();
+            data = self.get_neos_from_neo_getter();
+            self.data_to_csv(data);
+
+    def data_to_csv(self, data):
+        # parse that json and write the rows!!!
