@@ -12,7 +12,10 @@ class CSVLoaderTest(unittest.TestCase):
 
     def test_it_gets_neos_from_neo_getter(self):
         self.assertIsInstance(self.loader.get_neos_from_neo_getter(), dict)
-        self.assertEqual(self.loader.get_neos_from_neo_getter()['element_count'], 27)
+        self.assertEqual(self.loader.get_neos_from_neo_getter()['element_count'], 11)
+
+    def test_date_incrementer(self):
+        self.assertEqual(self.loader.date_incrementer(), 365)
 
 
 

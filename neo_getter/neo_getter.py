@@ -1,12 +1,12 @@
 import urllib.request as req
 import json
-from neo_getter.api_key import key
+from api_key import key
 
 class NeoGetter:
     def __init__(self, start_date, end_date):
         self.url = 'https://api.nasa.gov/neo/rest/v1/feed?'
         self.start_date = start_date
-        self.end_date   = end_date
+        self.end_date   = start_date
         self.api_key    = 'api_key=' + key
 
     def final_url(self):
