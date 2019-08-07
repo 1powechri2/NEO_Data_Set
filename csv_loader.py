@@ -15,11 +15,11 @@ class CSVLoader:
 
     def date_incrementer(self):
         while self.neo_getter.end_date != '2018-12-31':
-            self.date_getter.advance_date();
             self.neo_getter.start_date = self.date_getter.start_date_to_string();
             self.neo_getter.end_date   = self.date_getter.end_date_to_string();
             data = self.get_neos_from_neo_getter();
             self.data_to_csv(data);
+            self.date_getter.advance_date();
 
     def write_headers(self):
         with open('neos_from_2018.csv', mode='w') as csv_file:
@@ -67,7 +67,7 @@ class CSVLoader:
                                  'name': row['name']
                                  })
 
-x = CSVLoader()
 
+x = CSVLoader()
 x.write_headers()
 x.date_incrementer()
